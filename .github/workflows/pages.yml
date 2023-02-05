@@ -43,6 +43,9 @@ jobs:
       - name: Clone Static Files
         uses: actions/checkout@v3
         with:
+          # https://github.com/actions/checkout/issues/116#issuecomment-644419389
+          # Personal access token with repo scope
+          token: ${{ secrets.MY_REPO_PAT }}
           repository: daniel-endraws/secret_files
           path: 'secret_files'
       - name: Copy Static Files
