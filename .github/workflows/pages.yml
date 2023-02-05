@@ -41,7 +41,7 @@ jobs:
         id: pages
         uses: actions/configure-pages@v2
       - name: Clone Static Files
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           repository: daniel-endraws/secret_files
           path: '../secret_files'
