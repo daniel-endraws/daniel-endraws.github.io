@@ -44,7 +44,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           repository: daniel-endraws/secret_files
-          path: '../secret_files'
+          path: 'secret_files'
+        # Can't clone outside https://github.com/actions/checkout/issues/197
+        run: 'mv secret_files ../'
       - name: Copy Static Files
         # Copy only the files listed in index.md
         run: python3 copy.py -i index.md -o files -f ../secret_files
