@@ -52,7 +52,8 @@ jobs:
         # Copy only the files listed in index.md
         # Can't clone outside https://github.com/actions/checkout/issues/197
         run: |
-          'pwd'
+          'file secret_files'
+          'file ../'
           'mv secret_files ../' 
           'python3 copy.py -i index.md -o files -f ../secret_files'
       - name: Build with Jekyll
