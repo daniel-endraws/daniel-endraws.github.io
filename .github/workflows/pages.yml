@@ -48,6 +48,7 @@ jobs:
           token: ${{ secrets.MY_REPO_PAT }}
           repository: daniel-endraws/secret_files
           path: 'secret_files'
+        run: ls -la
       - name: Copy Static Files
         # Copy only the files listed in index.md
         # Can't clone outside https://github.com/actions/checkout/issues/197
