@@ -40,19 +40,20 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v2
+      # TODO: Cache static files
       - name: Clone Static Files
         uses: actions/checkout@v3
         with:
           # https://github.com/actions/checkout/issues/116#issuecomment-644419389
           # Personal access token with repo scope
           token: ${{ secrets.MY_REPO_PAT }}
-          repository: daniel-endraws/secret_files
+          repository: ${{ secrets.SECRET_REPO_NAME }}
           path: 'secret_files'
       - name: Copy Static Files
         # Copy only the files listed in index.md
         # Can't clone outside https://github.com/actions/checkout/issues/197
         run: |
-          pwd
+          mv secret_files/scripts/copy.py .
           mv secret_files ../
           python3 copy.py -i index.md -o files -f ../secret_files
       - name: Build with Jekyll
